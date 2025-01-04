@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/valleylabsagency/static/css/main.c3562796.css",
+    "main.js": "/valleylabsagency/static/js/main.25ff17db.js",
+    "static/js/453.96767971.chunk.js": "/valleylabsagency/static/js/453.96767971.chunk.js",
+    "index.html": "/valleylabsagency/index.html",
+    "main.c3562796.css.map": "/valleylabsagency/static/css/main.c3562796.css.map",
+    "main.25ff17db.js.map": "/valleylabsagency/static/js/main.25ff17db.js.map",
+    "453.96767971.chunk.js.map": "/valleylabsagency/static/js/453.96767971.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3562796.css",
+    "static/js/main.25ff17db.js"
+  ]
+}
