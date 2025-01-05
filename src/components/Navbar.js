@@ -58,7 +58,7 @@ const Logo = styled.div`
 const PhoneNumber = styled.div`
   margin-left: 1rem;
   font-weight: bold;
-  color: white;
+  color: #004888;
   font-size: 1rem;
   white-space: nowrap; /* Prevents the phone number from breaking */
   overflow: hidden;
