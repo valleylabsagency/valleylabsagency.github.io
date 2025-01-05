@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import navLogo from '../assets/images/logo-nav.png';
 
 const Navbar = () => {
   return (
@@ -9,7 +10,7 @@ const Navbar = () => {
         <NavItem>About</NavItem>
         <NavItem>Services</NavItem>
       </NavSection>
-      <Logo>V</Logo>
+      <img style={{height: "40px", width: "40px"}} src={navLogo} alt="logo" />
       <NavSection>
         <NavItem>Case Studies</NavItem>
         <NavItem>Contact</NavItem>
@@ -26,7 +27,7 @@ const Nav = styled.nav`
   justify-content: space-around;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: teal;
+  background-color: white;
   position: fixed;
   width: 100%;
   z-index: 10;
@@ -43,6 +44,7 @@ const NavItem = styled.div`
   color: white;
   cursor: pointer;
   font-size: 1rem;
+  color: #004888;
 `;
 
 const Logo = styled.div`

@@ -1,20 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../assets/images/logo_processed.png'
 
 const Jumbotron = () => {
   return (
     <Jumbo>
       <Content>
-        <Text>Valley Labs</Text>
         <Button>Request a Free Consultation</Button>
       </Content>
       <LogoContainer>
-        <Logo>V</Logo>
+      <img src={logo} alt="valley logo" />
       </LogoContainer>
     </Jumbo>
   );
-};
-
+}; 
 export default Jumbotron;
 
 const Jumbo = styled.div`
@@ -22,10 +21,9 @@ const Jumbo = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 700px;
   padding: 0 2rem;
-  background-color: #e0f7fa;
-  color: teal;
+  color: #004888;
   text-align: left;
 `;
 
@@ -34,9 +32,6 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
-  background-color: white;
-  height: 400px;
 `;
 
 const Logo = styled.div`
@@ -62,7 +57,7 @@ const Button = styled.button`
   padding: 1rem 2rem;
   font-size: 1.5rem;
   color: white;
-  background-color: teal;
+  background-color: #004888;
   border: none;
   border-radius: 5px;
   cursor: pointer;
