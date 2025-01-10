@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import navLogo from '../assets/images/logo-nav.png';
+import navLogo from '../assets/images/SVGs/valley-logo.svg';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -75,10 +75,12 @@ const LogoContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  height: 50px;
 
   img {
-    height: 40px;
-    width: 40px;
+    position: absolute;
+    top: -13px;
   }
   
   @media(max-width: 768px) {

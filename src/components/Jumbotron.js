@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/images/logo_processed.png';
+import logo from '../assets/images/SVGs/logo-slogan.svg';
 
 const Jumbotron = () => {
   return (
     <Jumbo>
       <LogoContainer>
         <img src={logo} alt="Company Logo" />
-        <Slogan>Your Vision, Our Code</Slogan>
       </LogoContainer>
       <Content>
         <Button>Request a Free Consultation</Button>
