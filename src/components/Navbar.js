@@ -1,25 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import navLogo from '../assets/images/SVGs/valley-logo.svg';
+import navLogo from '../assets/images/SVGs/nav-logo.svg';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <Nav>
       <NavSection>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/about">About</StyledLink>
-        <StyledLink to="/services">Services</StyledLink>
+        <LogoContainer>
+          <img src={navLogo} alt="logo" />
+        </LogoContainer>
       </NavSection>
       
-      <LogoContainer>
-        <img src={navLogo} alt="logo" />
-      </LogoContainer>
-      
       <NavSection>
-        <StyledLink to="/case-studies">Case Studies</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
-        <PhoneNumber>850-900-6732</PhoneNumber>
+        <StyledLink to="/case-studies">Who We Are</StyledLink>
+        <StyledLink to="/contact">What We Do</StyledLink>
+        <Button>Get Started</Button>
       </NavSection>
     </Nav>
   );
@@ -28,15 +24,18 @@ const Navbar = () => {
 export default Navbar;
 
 const Nav = styled.nav`
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
-  background-color: white;
+  padding: 1rem 3rem 1rem 4rem;
+  background-color: rgba(240, 240, 240, 1);
   position: fixed;
   width: 100%;
   z-index: 10;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 45.7px 17px rgba(138, 138, 138, 0.25);
+
+
 
   @media(max-width: 768px) {
     flex-direction: column;
@@ -57,49 +56,25 @@ const NavSection = styled.div`
 
 const StyledLink = styled(Link)`
   margin: 0 1rem;
-  color: #004888;
+  color: #000000;
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
-  &:hover {
-    color: #00796b;
-  }
-
-  @media(max-width: 768px) {
-    margin: 0.5rem;
-  }
+  font-size: 20px;
+  font-weight: 400;
 `;
 
 const LogoContainer = styled.div`
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 50px;
 
-  img {
-    position: absolute;
-    top: -13px;
-  }
-  
-  @media(max-width: 768px) {
-    margin: 1rem 0;
-  }
 `;
 
-const PhoneNumber = styled.div`
-  margin-left: 1rem;
-  font-weight: bold;
-  color: #004888;
-  font-size: 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 150px;
-
-  @media(max-width: 768px) {
-    margin-left: 0.5rem;
-   
-  }
+const Button = styled.div`
+  background: #0927EB;
+  height: 20px;
+  color: white;
+  font-size: 19px;
+  border-radius: 8px;
+  padding: 7px 20px 16px 20px;
+  margin-left: 15px;
+  font-weight: 300;
 `;

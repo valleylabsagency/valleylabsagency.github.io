@@ -1,12 +1,14 @@
 /* src/pages/Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 
 /* Base colors */
 :root {
-    --navy: #001f3f;             /* Dark navy blue */
-    --light-navy: #003366;        /* Slightly lighter navy for contrast */
+    --main-blue: #061BB0;             /* Dark navy blue */
+    --light-blue: #76B9F0;        /* Slightly lighter navy for contrast */
     --accent: #ff6347;            /* Accent color */
-    --light-grey: #f0f0f0;
-    --dark-grey: #333333;
+    --light-grey: #A3A3A3;
+    --grey-gradient: linear-gradient(bottom, #DCDCDC, #D3D3D3);
+    --purple: #C4CBF9;
     --white: #ffffff;
 }
 
@@ -15,13 +17,148 @@
     font-family: 'Arial, sans-serif';
     color: var(--dark-grey);
     line-height: 1.6;
-    background-color: var(--light-grey);
+    background-color: var(--white);
+    overflow: hidden;
 }
 
 /* General section styling */
 .section {
     padding: 40px 20px;
     text-align: center;
+}
+
+.about-section {
+    background: linear-gradient(180deg, #DCDCDC 0%, #D3D3D3 100%);
+    z-index: 5;
+    position: relative;
+    padding: 80px 0;
+}
+
+.sub-section {
+    width: 86%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.sub-section img {
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+    margin-right: 55px;
+}
+
+.sub-section .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    font-family: "Mukta", serif;
+}
+
+.sub-section .text h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: rgba(6, 27, 176, 1);
+    margin-bottom: 10px;
+    line-height: 30px;
+    white-space: noWrap;
+}
+
+.sub-section .text p {
+    font-weight: 400;
+    color: black;
+    font-size: 14px;
+    margin-top: 0;
+    line-height: 16px;
+    width: 529px;
+}
+
+.services-section {
+    padding: 80px 0;
+    text-align: center;
+    background: var(--white);
+}
+
+.services-section h2 {
+    font-family: "Mukta", serif;
+    color: var(--main-blue);
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.services-section .service {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.services-section .service img {
+    width: 200px;       /* Same size as previous images */
+    height: 200px;
+    border-radius: 25px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.services-section .service h3 {
+    font-family: "Mukta", serif;
+    font-size: 1.8em;
+    color: rgba(6, 27, 176, 1);
+    margin-bottom: 20px;
+}
+
+.services-section .service p {
+    max-width: 600px;
+    font-size: 1em;
+    color: #000;
+    line-height: 1.5;
+    margin: auto;
+}
+
+/* Layout for web-service and uiux-service (side-by-side layout) */
+.services-section .web-service,
+.services-section .uiux-service {
+    /*flex-direction: row; */
+    justify-content: center;
+    /*align-items: flex-start; */
+    text-align: left;
+}
+
+.services-section .web-service .service-left,
+.services-section .uiux-service .service-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.services-section .web-service .service-right,
+.services-section .uiux-service .service-right {
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .services-section .web-service,
+    .services-section .uiux-service {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .services-section .web-service .service-left,
+    .services-section .uiux-service .service-left {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .services-section .web-service .service-right,
+    .services-section .uiux-service .service-right {
+        max-width: 100%;
+    }
 }
 
 /* Specific section backgrounds and text colors using navy palette */
@@ -214,4 +351,42 @@
     .contact-form textarea {
         font-size: 0.9em;
     }
+}
+
+/* Contact Banner Section */
+.contact-banner {
+    width: 100%;
+    background-color: var(--main-blue); /* Using the blue color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 116px 20px;
+    box-sizing: border-box;
+    height: 200px;
+    margin-bottom: 100px;
+}
+
+.contact-banner h2 {
+    color: var(--white);
+    font-family: "Mukta", serif;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.contact-button {
+    background-color: rgba(196, 203, 249, 1); /* Button background color */
+    color: black;
+    font-family: "Mukta", serif;
+    font-size: 1.5em;
+    border: none;
+    padding: 5px 22px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-button:hover {
+    background-color: rgba(118, 185, 240, 1); /* Slight darkening on hover, adjust if needed */
 }

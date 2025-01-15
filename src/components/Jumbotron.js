@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/images/SVGs/logo-slogan.svg';
+import '../assets/CSS/Home.css'; 
 
 const Jumbotron = () => {
   return (
     <Jumbo>
-      <LogoContainer>
-        <img src={logo} alt="Company Logo" />
-      </LogoContainer>
-      <Content>
-        <Button>Request a Free Consultation</Button>
-      </Content>
+      <Left>
+        <LargeText>Let's Build Something Great,<br /><span style={{color: "rgba(118, 185, 240, 1)"}}>Together.</span></LargeText>
+        <SmallText>Valley Labs brings your digital products to life.</SmallText>
+      </Left>
+      <Right>
+        <Circle1 />
+        <Circle2 />
+        {/* Any additional overlapping content can be placed here */}
+      </Right>
     </Jumbo>
   );
 };
@@ -19,15 +22,15 @@ export default Jumbotron;
 
 const Jumbo = styled.div`
   display: flex;
-  flex-direction: row-reverse;
   justify-content: space-around;
   align-items: center;
-  height: 700px;
+  height: 500px;
   padding: 100px 2rem 0 2rem;
   background: #f9f9f9;
   color: #004888;
   text-align: left;
-
+  position: relative;
+  
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
@@ -35,58 +38,75 @@ const Jumbo = styled.div`
   }
 `;
 
-const LogoContainer = styled.div`
+const Left = styled.div`
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+  padding: 1rem;
+  z-index: 2; /* Ensures text is above the circles if overlapping */
 `;
 
-const Slogan = styled.h2`
-  margin-top: 1rem;
-  font-size: 1.8rem;
-  color: #001f3f;
+const LargeText = styled.h1`
+  width: 500px;
+  margin: 0;
+  line-height: 1.2;
+  font-family: "Mukta", serif;
+  font-size: 66px;
+  color: rgba(6, 27, 176, 1);
+  font-weight: 700;
+  line-height: 53.83px;
+  letter-spacing: -0.03em;
+  text-align: left;
+
+
 
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
   }
 `;
 
-const Content = styled.div`
+const SmallText = styled.p`
+  font-family: "Mukta", serif;
+  font-size: 32px;
+  font-weight: 300;
+  margin-top: 1rem;
+  color:rgba(163, 163, 163, 1);
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    text-align: center;
+  }
+`;
+
+const Right = styled.div`
   flex: 1;
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* The z-index is lower than Left to ensure text overlaps circles if needed */
+  z-index: 1;
 
   @media (max-width: 768px) {
     margin-top: 2rem;
   }
 `;
 
-const Button = styled.button`
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
-  color: #ffffff;
-  background-color: #004888;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+const Circle = styled.div`
+  position: absolute;
+  background-color: rgba(217, 217, 217, 0.39);
+  border-radius: 50%;
+  z-index: 1;
+`;
 
-  &:hover {
-    background-color: #00796b;
-  }
+const Circle1 = styled(Circle)`
+  width: 900px;
+  height: 900px;
+  right: -145px;
+`;
 
-  @media (max-width: 768px) {
-    font-size: 1.3rem;
-    padding: 0.8rem 1.5rem;
-  }
+const Circle2 = styled(Circle)`
+ width: 1171px;
+ height: 1058px;
+ top: -203px;
+ left: -66px;
 `;
