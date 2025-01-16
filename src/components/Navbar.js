@@ -8,14 +8,19 @@ const Navbar = () => {
     <Nav>
       <NavSection>
         <LogoContainer>
-          <img src={navLogo} alt="logo" />
+          <Link to="/">
+            <img src={navLogo} alt="logo" />
+          </Link>
+         
         </LogoContainer>
       </NavSection>
       
       <NavSection>
-        <StyledLink to="/case-studies">Who We Are</StyledLink>
-        <StyledLink to="/contact">What We Do</StyledLink>
-        <Button>Get Started</Button>
+        <StyledLink to="/about">Who We Are</StyledLink>
+        <StyledLink to="/what-we-do">What We Do</StyledLink>
+        <Link to="/contact">
+          <Button>Get Started</Button>
+        </Link>
       </NavSection>
     </Nav>
   );

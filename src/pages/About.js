@@ -1,37 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import image from '../assets/images/tyler.jpg'
+import tylerImage from '../assets/images/tyler.jpg';
 
 const About = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => setModalOpen(true);
-  const closeModal = () => setModalOpen(false);
-
   return (
     <Container>
-      <h1>Valley Labs Team</h1>
-      <Card onClick={openModal}>
-        <img src={image} alt="Tyler Valley" />
-        <h2>Tyler Valley</h2>
-        <p>Founder and Director</p>
-      </Card>
+      {/* Heading Section */}
+      <HeadingSection>
+        <MainHeading>Test Heading</MainHeading>
+        <SubHeading>(lorem ipsum text)</SubHeading>
+        <Paragraph>(lorem ipsum text)</Paragraph>
+      </HeadingSection>
 
-      {modalOpen && (
-        <ModalOverlay onClick={closeModal}>
-          <ModalContent onClick={e => e.stopPropagation()}>
-            <CloseButton onClick={closeModal}>X</CloseButton>
-            <h2>Tyler Valley</h2>
-            <p>Founder and Director</p>
-            <p>
-              Tyler Valley is the founder and director of Valley Labs. He
-              specializes in software development, project management, and
-              client relations, ensuring the highest standards for every
-              project.
-            </p>
-          </ModalContent>
-        </ModalOverlay>
-      )}
+      {/* Meet the Team Section */}
+      <MeetTheTeamSection>
+        <SectionHeading>Meet the Team</SectionHeading>
+        <TeamMember>
+          <Image src={tylerImage} alt="Tyler Valley" />
+          <Name>Tyler Valley</Name>
+          <Role>Founder and Director</Role>
+          <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat velit vitae orci faucibus, eget laoreet mi ullamcorper.</Description>
+        </TeamMember>
+      </MeetTheTeamSection>
     </Container>
   );
 };
@@ -40,66 +30,77 @@ export default About;
 
 // Styled Components
 const Container = styled.div`
-  padding: 5rem 2rem;
-  text-align: center;
+  padding: 5rem 0;
+  font-family: 'Mukta', sans-serif;
 `;
 
-const Card = styled.div`
-  display: inline-block;
-  width: 200px;
-  padding: 1rem;
-  margin: 1rem;
-  background: var(--light-grey);
-  border-radius: 8px;
-  cursor: pointer;
+const HeadingSection = styled.div`
   text-align: center;
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  }
-  img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  h2 {
-    margin: 1rem 0 0.5rem;
-  }
-  p {
-    margin: 0;
-    color: var(--dark-grey);
-  }
+  margin-bottom: 4rem;
 `;
 
-const ModalOverlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0.5);
+const MainHeading = styled.h1`
+  font-size: 66px;
+  color: rgba(6, 27, 176, 1);
+  font-weight: 700;
+  margin-bottom: 1rem;
+`;
+
+const SubHeading = styled.h2`
+  font-size: 32px;
+  color: rgba(118, 185, 240, 1);
+  font-weight: 300;
+  margin-bottom: 1rem;
+`;
+
+const Paragraph = styled.p`
+  font-size: 16px;
+  color: rgba(118, 185, 240, 1);
+`;
+
+const MeetTheTeamSection = styled.div`
+    background: linear-gradient(180deg, #DCDCDC 0%, #D3D3D3 100%);
+    z-index: 5;
+    text-align: center;
+    position: relative;
+    padding: 80px 0;
+`;
+
+const SectionHeading = styled.h1`
+  font-size: 36px;
+  color: rgba(6, 27, 176, 1);
+  margin-bottom: 2rem;
+`;
+
+const TeamMember = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-`;
-
-const ModalContent = styled.div`
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
   max-width: 500px;
-  width: 90%;
-  position: relative;
+  margin: 0 auto;
 `;
 
-const CloseButton = styled.button`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: var(--navy);
-  color: white;
-  border: none;
-  padding: 0.5rem;
-  cursor: pointer;
-  border-radius: 50%;
+const Image = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 25px;
+  margin-bottom: 1rem;
+`;
+
+const Name = styled.h2`
+  font-size: 24px;
+  color: black;
+  margin-bottom: 0.5rem;
+`;
+
+const Role = styled.h3`
+  font-size: 18px;
+  color: rgba(118, 185, 240, 1);
+  margin-bottom: 1rem;
+`;
+
+const Description = styled.p`
+  font-size: 16px;
+  color: black;
+  text-align: center;
 `;
