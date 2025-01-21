@@ -11,35 +11,35 @@ const Jumbotron = () => {
         <SmallText>Valley Labs brings your digital products to life.</SmallText>
       </Left>
       <Right>
-      <AnimatedCircle
-          animate={{
-            x: [-100, 150, -50, 100], // Smooth, organic horizontal movement
-            y: [0, 200, -150, 100], // Larger, fluid vertical movement
-          }}
-          transition={{
-            duration: 12, // Slower movement
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          size="900px"
-          color="rgba(217, 217, 217, 0.39)"
-          style={{ right: "-145px" }}
-        />
-        <AnimatedCircle
-          animate={{
-            x: [100, -150, 50, -100], // Opposite horizontal motion
-            y: [-50, 150, -200, 50], // Opposite vertical motion
-          }}
-          transition={{
-            duration: 14, // Slightly different timing for variation
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          size="1171px"
-          color="rgba(217, 217, 217, 0.39)"
-          style={{ top: "-203px", left: "-66px" }}
-        />
-        {/* Any additional overlapping content can be placed here */}
+          <AnimatedCircle
+            animate={{
+              x: [-100, 150, -50, 100, -100], // Append starting position (-100) at the end
+              y: [0, 200, -150, 100, 0],       // Append starting position (0) at the end
+            }}
+            transition={{
+              duration: 12,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            size="900px"
+            color="rgba(217, 217, 217, 0.39)"
+            style={{ right: "-145px" }}
+          />
+          <AnimatedCircle
+            animate={{
+              x: [100, -150, 50, -100, 100],   // Append starting position (100) at the end
+              y: [-50, 150, -200, 50, -50],     // Append starting position (-50) at the end
+            }}
+            transition={{
+              duration: 14,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            size="1171px"
+            color="rgba(217, 217, 217, 0.39)"
+            style={{ top: "-203px", left: "-66px" }}
+          />
+     
       </Right>
     </Jumbo>
   );
