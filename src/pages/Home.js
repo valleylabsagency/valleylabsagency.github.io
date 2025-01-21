@@ -51,8 +51,9 @@ const Home = () => {
                     <img src={tyler} /> */}
                 </div>
             </div>
+            <h2 className="our-services">Our Services</h2>
             <div className="services-section">
-                <h2>Our Services</h2>
+                
                 
                 <div className="service mobile-service">
                     <img src={iphone} alt="Mobile Applications Development" />

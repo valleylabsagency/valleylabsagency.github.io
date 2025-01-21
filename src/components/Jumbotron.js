@@ -51,7 +51,7 @@ const Jumbo = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 680px;
+  height: 50em;
   padding: 100px 50px 0 50px;
   background: #f9f9f9;
   color: #004888;
