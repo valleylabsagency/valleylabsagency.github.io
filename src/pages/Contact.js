@@ -26,7 +26,7 @@ const Contact = () => {
         <MediumText>Email:</MediumText>
         <SmallText>tyler@valleylabsagency.com</SmallText>
         <MediumText>Phone:</MediumText>
-        <SmallText>(850) 900-6732</SmallText>
+        <SmallText>(448) 488-3464</SmallText>
       </ContactBox>
     </Container>
   );
