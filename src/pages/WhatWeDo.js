@@ -41,19 +41,26 @@ const MainHeading = styled.h1`
   font-size: 66px;
   color: rgba(6, 27, 176, 1);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 `;
 
 const SubHeading = styled.h2`
-  font-size: 32px;
+  font-size: 66px;
   color: rgba(118, 185, 240, 1);
   font-weight: 300;
+  margin-top: 0;
   margin-bottom: 1rem;
+  width: 80%;
+  margin: auto;
+  font-weight: 700;
+  line-height: 70px;
+  max-width: 800px;
 `;
 
 const Paragraph = styled.p`
   font-size: 16px;
   color: rgba(118, 185, 240, 1);
+  margin-top: 6em;
 `;
 
 const GreySection = styled.div`

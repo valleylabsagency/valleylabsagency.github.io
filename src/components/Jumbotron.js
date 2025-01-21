@@ -1,17 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
 import '../assets/CSS/Home.css'; 
+import { motion } from "framer-motion";
 
 const Jumbotron = () => {
   return (
     <Jumbo>
       <Left>
-        <LargeText>Let's Build Something Great,<br /><span style={{color: "rgba(118, 185, 240, 1)"}}>Together.</span></LargeText>
+        <LargeText>Let's build something great,<br /><span style={{color: "rgba(118, 185, 240, 1)"}}>Together.</span></LargeText>
         <SmallText>Valley Labs brings your digital products to life.</SmallText>
       </Left>
       <Right>
-        <Circle1 />
-        <Circle2 />
+      <AnimatedCircle
+          animate={{
+            x: [-100, 150, -50, 100], // Smooth, organic horizontal movement
+            y: [0, 200, -150, 100], // Larger, fluid vertical movement
+          }}
+          transition={{
+            duration: 12, // Slower movement
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          size="900px"
+          color="rgba(217, 217, 217, 0.39)"
+          style={{ right: "-145px" }}
+        />
+        <AnimatedCircle
+          animate={{
+            x: [100, -150, 50, -100], // Opposite horizontal motion
+            y: [-50, 150, -200, 50], // Opposite vertical motion
+          }}
+          transition={{
+            duration: 14, // Slightly different timing for variation
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          size="1171px"
+          color="rgba(217, 217, 217, 0.39)"
+          style={{ top: "-203px", left: "-66px" }}
+        />
         {/* Any additional overlapping content can be placed here */}
       </Right>
     </Jumbo>
@@ -24,8 +51,8 @@ const Jumbo = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 500px;
-  padding: 100px 2rem 0 2rem;
+  height: 680px;
+  padding: 100px 50px 0 50px;
   background: #f9f9f9;
   color: #004888;
   text-align: left;
@@ -40,16 +67,16 @@ const Jumbo = styled.div`
 
 const Left = styled.div`
   flex: 1;
-  padding: 1rem;
+  padding: 1rem 0;
   z-index: 2; /* Ensures text is above the circles if overlapping */
 `;
 
 const LargeText = styled.h1`
-  width: 500px;
+  width: 1000px;
   margin: 0;
   line-height: 1.2;
   font-family: "Mukta", serif;
-  font-size: 66px;
+  font-size: 70px;
   color: rgba(6, 27, 176, 1);
   font-weight: 700;
   line-height: 53.83px;
@@ -66,10 +93,11 @@ const LargeText = styled.h1`
 
 const SmallText = styled.p`
   font-family: "Mukta", serif;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 300;
   margin-top: 1rem;
-  color:rgba(163, 163, 163, 1);
+  color: #000000;
+  margin-left: 6px;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -98,15 +126,11 @@ const Circle = styled.div`
   z-index: 1;
 `;
 
-const Circle1 = styled(Circle)`
-  width: 900px;
-  height: 900px;
-  right: -145px;
-`;
-
-const Circle2 = styled(Circle)`
- width: 1171px;
- height: 1058px;
- top: -203px;
- left: -66px;
+const AnimatedCircle = styled(motion.div)`
+  position: absolute;
+  background-color: ${(props) => props.color || "rgba(217, 217, 217, 0.39)"};
+  border-radius: 50%;
+  width: ${(props) => props.size || "100px"};
+  height: ${(props) => props.size || "100px"};
+  z-index: 1;
 `;

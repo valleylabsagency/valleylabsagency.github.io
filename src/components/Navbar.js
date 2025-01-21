@@ -9,7 +9,7 @@ const Navbar = () => {
       <NavSection>
         <LogoContainer>
           <Link to="/">
-            <img src={navLogo} alt="logo" />
+            <img style={{height: 130}} src={navLogo} alt="logo" />
           </Link>
          
         </LogoContainer>
@@ -18,9 +18,9 @@ const Navbar = () => {
       <NavSection>
         <StyledLink to="/about">Who We Are</StyledLink>
         <StyledLink to="/what-we-do">What We Do</StyledLink>
-        <Link to="/contact">
+        <StyledLink style={{margin: 0}} to="/contact">
           <Button>Get Started</Button>
-        </Link>
+        </StyledLink>
       </NavSection>
     </Nav>
   );
@@ -33,7 +33,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem 1rem 4rem;
+  padding: 2rem 50px 2rem 50px;
   background-color: rgba(240, 240, 240, 1);
   position: fixed;
   width: 100%;
@@ -65,7 +65,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
 `;
 
@@ -77,9 +77,12 @@ const Button = styled.div`
   background: #0927EB;
   height: 20px;
   color: white;
-  font-size: 19px;
+  font-size: 25px;
   border-radius: 8px;
-  padding: 7px 20px 16px 20px;
+  padding: 9px 20px 22px 20px;
   margin-left: 15px;
   font-weight: 300;
+  outline: none; /* Removes focus outline */
+  border: none; /* Ensure no borders are shown */
+  cursor: pointer; /* Adds pointer cursor on hover */
 `;
