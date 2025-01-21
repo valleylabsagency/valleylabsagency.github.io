@@ -36,8 +36,11 @@ export default Contact;
 
 // Styled Components
 const Container = styled.div`
-  padding: 5rem 0;
+  padding: 20em 0;
   font-family: 'Mukta', sans-serif;
+   @media (max-width: 542px) {
+      padding: 25em 0;
+  }
 `;
 
 const HeadingSection = styled.div`
@@ -50,6 +53,9 @@ const MainHeading = styled.h1`
   color: rgba(6, 27, 176, 1);
   font-weight: 700;
   margin-bottom: 1rem;
+   @media (max-width: 700px) {
+     font-size: 40px;
+  }
 `;
 
 const SubHeading = styled.h2`
@@ -57,6 +63,21 @@ const SubHeading = styled.h2`
   color: rgba(118, 185, 240, 1);
   font-weight: 300;
   margin-bottom: 1rem;
+  width: 1032px;
+  margin: auto;
+  
+  @media (max-width: 1056px) {
+    width: 700px !important;
+  }
+
+  @media (max-width: 700px) {
+    width: 400px !important;
+     font-size: 24px;
+  }
+  @media (max-width: 408px) {
+    width: 300px !important;
+     font-size: 22px;
+  }
 `;
 
 const FormSection = styled.div`

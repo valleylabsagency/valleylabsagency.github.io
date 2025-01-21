@@ -61,7 +61,7 @@ const Jumbo = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     height: auto;
-    padding: 6rem 1rem;
+    padding: 20rem 50px 6rem 50px;
   }
 `;
 
@@ -84,10 +84,20 @@ const LargeText = styled.h1`
   text-align: left;
 
 
+  @media (max-width: 892px) {
+    font-size: 62px;
+  }
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 50px;
     text-align: center;
+  }
+  @media (max-width: 590px) {
+    font-size: 40px;
+    text-align: center;
+    margin: auto;
+    max-width: 300px;
+    
   }
 `;
 

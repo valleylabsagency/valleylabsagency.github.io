@@ -9,7 +9,12 @@ import iphone from '../assets/images/iphone.jpg'
 import website from '../assets/images/website.jpg'
 import design from '../assets/images/design.jpg'
 
+import { useNavigate } from 'react-router-dom';
+
 const Home = () => {
+
+    const navigate = useNavigate();
+
     const projects = [
         "Odyssey Travel",
         "Dibacco Importing and Distributing",
@@ -30,14 +35,18 @@ const Home = () => {
         );
     };
 
+    const routeToContact = () => {
+        navigate('/contact'); 
+    }
+
     return (
         <div className="home-container">
             <Jumbotron />
             
-            <div className="about-section">
-                <div className="sub-section">
+            <div id="about-section" className="about-section">
+                <div id="digital-products" className="sub-section">
                     <img src={apps} /> 
-                    <div className="text" style={{alignItems: "flex-start"}}>
+                    <div className="text">
                         <h1>Digital products tailored to you</h1> 
                         <p>We create practical digital solutions that make your business workflow easier, so you can focus on what really matters. Whether you need a custom mobile app to enhance customer engagement or a web platform to streamline your operations, we build tools that fit your unique needs. Our approach ensures that every solution is designed with your goals in mind. </p>
                     </div>
@@ -83,7 +92,7 @@ const Home = () => {
             </div>
             <div className="contact-banner">
                 <h2>Let's get connected.</h2>
-                <button className="contact-button">Contact Us</button>
+                <button onClick={routeToContact} className="contact-button">Contact Us</button>
             </div>
         </div>
     );

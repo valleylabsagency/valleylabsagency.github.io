@@ -1,15 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import navLogo from '../assets/images/SVGs/nav-logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+
+  const navigate = useNavigate();
+  const scrollToDigitalProducts = (e) => {
+    e.preventDefault(); // Prevent default link behavior
+    navigate('/', { state: { scrollTo: 'about-section' } });
+    const element = document.getElementById('about-section');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   return (
     <Nav>
       <NavSection>
         <LogoContainer>
           <Link to="/">
-            <img style={{height: 130}} src={navLogo} alt="logo" />
+            <StyledImg src={navLogo} alt="logo" />
           </Link>
          
         </LogoContainer>
@@ -17,7 +27,7 @@ const Navbar = () => {
       
       <NavSection>
         <StyledLink to="/about">Who We Are</StyledLink>
-        <StyledLink to="/what-we-do">What We Do</StyledLink>
+        <StyledLink href="#about-section" onClick={scrollToDigitalProducts}>What We Do</StyledLink>
         <StyledLink style={{margin: 0}} to="/contact">
           <Button>Get Started</Button>
         </StyledLink>
@@ -42,9 +52,13 @@ const Nav = styled.nav`
 
 
 
-  @media(max-width: 768px) {
+  @media(max-width: 984px) {
     flex-direction: column;
     padding: 1rem;
+  }
+
+  @media(max-width: 375px) {
+    padding: 0;
   }
 `;
 
@@ -53,12 +67,26 @@ const NavSection = styled.div`
   align-items: center;
   flex-wrap: wrap;
 
+  @media(max-width: 1159px) {
+    justify-content: center; 
+  }
+
   @media(max-width: 768px) {
-    justify-content: center;
+  
     margin: 0.5rem 0;
   }
 `;
 
+const StyledImg = styled.img`
+  height: 130px;
+
+  @media(max-width: 768px) {
+  
+    height: 90px;
+    margin-left: 60px;
+  }
+
+`;
 const StyledLink = styled(Link)`
   margin: 0 1rem;
   color: #000000;
@@ -79,10 +107,16 @@ const Button = styled.div`
   color: white;
   font-size: 25px;
   border-radius: 8px;
-  padding: 9px 20px 22px 20px;
+  padding: 9px 20px 26px 20px;
   margin-left: 15px;
   font-weight: 300;
   outline: none; /* Removes focus outline */
   border: none; /* Ensure no borders are shown */
   cursor: pointer; /* Adds pointer cursor on hover */
+  @media(max-width: 1159px) {
+    margin-top: 20px; 
+  }
+  @media(max-width: 984px) {
+    margin-bottom: 18px;
+  }
 `;

@@ -8,8 +8,11 @@ const About = () => {
       {/* Heading Section */}
       <HeadingSection>
         <MainHeading>About Valley Labs</MainHeading>
-        <SubHeading>We are a team of developers yes we are</SubHeading>
-        <Paragraph>At Valley labs we be developin stuff out the wazoo ya know what I'm sayin</Paragraph>
+        <SubHeading>Building Innovative Solutions for your business</SubHeading>
+        <Paragraph>At Valley Labs, we specialize in crafting cutting-edge digital solutions 
+          tailored to your needs. Our team of experts is dedicated to innovation 
+          and excellence, ensuring every project we undertake delivers 
+          unmatched results and value.</Paragraph>
       </HeadingSection>
 
       {/* Meet the Team Section */}
@@ -18,8 +21,10 @@ const About = () => {
         <TeamMember>
           <Image src={tylerImage} alt="Tyler Valley" />
           <Name>Tyler Valley</Name>
-          <Role>Founder and Director</Role>
-          <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque volutpat velit vitae orci faucibus, eget laoreet mi ullamcorper.</Description>
+          <Role>Founder and Lead Engineer</Role>
+          <Description> Tyler leads our team with a passion for developing transformative 
+            technologies. With years of experience, he ensures that every project 
+            meets the highest standards of quality and innovation.</Description>
         </TeamMember>
       </MeetTheTeamSection>
     </Container>
@@ -30,7 +35,7 @@ export default About;
 
 // Styled Components
 const Container = styled.div`
-  padding: 5rem 0;
+ padding: 20em 0;
   font-family: 'Mukta', sans-serif;
 `;
 
@@ -44,6 +49,13 @@ const MainHeading = styled.h1`
   color: rgba(6, 27, 176, 1);
   font-weight: 700;
   margin-bottom: 0;
+
+  @media (max-width: 984px) {
+    font-size: 50px;
+  }
+  @media (max-width: 584px) {
+    font-size: 38px;
+  }
 `;
 
 const SubHeading = styled.h2`
@@ -57,6 +69,15 @@ const SubHeading = styled.h2`
   font-weight: 700;
   line-height: 70px;
   max-width: 800px;
+
+  @media (max-width: 984px) {
+    font-size: 50px;
+    
+  }
+  @media (max-width: 584px) {
+    font-size: 38px;
+    line-height: 45px
+  }
 `;
 
 const Paragraph = styled.p`
