@@ -1,22 +1,89 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const formRef = useRef(); // Create a reference for the form
+  const [status, setStatus] = useState({ message: '', type: '' }); // For showing submission status
+  const [opacity, setOpacity] = useState(1); // Controls opacity for fade-out
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ message: 'Submitting...', type: 'info' });
+    setOpacity(1); // Reset opacity when a new message is set
+
+    emailjs
+      .sendForm(
+        'service_ch1wbye', // Replace with your service ID
+        'template_ixbtfmc', // Replace with your template ID
+        formRef.current, // Pass the form reference
+        'Ran8EZha4UhUPMb11' // Replace with your public key
+      )
+      .then(
+        () => {
+          setStatus({ message: 'Message sent successfully!', type: 'success' });
+          formRef.current.reset(); // Clear the form after submission
+        },
+        (error) => {
+          console.error('Failed to send email:', error);
+          setStatus({ message: 'Failed to send message. Please try again.', type: 'error' });
+        }
+      );
+
+    // Gradually fade out the alert
+    setTimeout(() => {
+      const fadeOut = setInterval(() => {
+        setOpacity((prev) => {
+          if (prev <= 0.1) {
+            clearInterval(fadeOut); // Stop fading once opacity is near zero
+            setStatus({ message: '', type: '' }); // Hide the alert completely
+            return 0;
+          }
+          return prev - 0.1; // Decrease opacity gradually
+        });
+      }, 200); // Adjust the interval to control the speed of fading
+    }, 2000); // Start fading after 3 seconds
+  };
+
   return (
     <Container>
+      {/* Alert Section */}
+      {status.message && (
+        <Alert type={status.type} style={{ opacity }}>
+          {status.message}
+        </Alert>
+      )}
+
       {/* Heading Section */}
       <HeadingSection>
         <MainHeading>Ready? Let's Talk</MainHeading>
-        <SubHeading>Our team is ready to respond to every inquiry, no matter the size of your goals. Tell us a little about yourself, and we'd love to get connected.</SubHeading>
+        <SubHeading>
+          Our team is ready to respond to every inquiry, no matter the size of your goals. Tell us a little about yourself, and we'd love to get connected.
+        </SubHeading>
       </HeadingSection>
 
       {/* Contact Form */}
       <FormSection>
-        <Form>
-          <Input type="text" placeholder="Your Name" />
-          <Input type="email" placeholder="Your Email" />
-          <TextArea placeholder="Your Message"></TextArea>
-          <SubmitButton>Submit</SubmitButton>
+        <Form ref={formRef} onSubmit={handleSubmit}>
+          <Input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+          <Input
+            type="email"
+            name="reply_to"
+            placeholder="Your Email"
+            required
+          />
+          <TextArea
+            name="message"
+            placeholder="Your Message"
+            required
+          ></TextArea>
+          <SubmitButton type="submit">Submit</SubmitButton>
         </Form>
       </FormSection>
 
@@ -38,8 +105,8 @@ export default Contact;
 const Container = styled.div`
   padding: 20em 0;
   font-family: 'Mukta', sans-serif;
-   @media (max-width: 542px) {
-      padding: 25em 0;
+  @media (max-width: 542px) {
+    padding: 25em 0;
   }
 `;
 
@@ -53,8 +120,8 @@ const MainHeading = styled.h1`
   color: rgba(6, 27, 176, 1);
   font-weight: 700;
   margin-bottom: 1rem;
-   @media (max-width: 700px) {
-     font-size: 40px;
+  @media (max-width: 700px) {
+    font-size: 40px;
   }
 `;
 
@@ -65,18 +132,18 @@ const SubHeading = styled.h2`
   margin-bottom: 1rem;
   width: 1032px;
   margin: auto;
-  
+
   @media (max-width: 1056px) {
     width: 700px !important;
   }
 
   @media (max-width: 700px) {
     width: 400px !important;
-     font-size: 24px;
+    font-size: 24px;
   }
   @media (max-width: 408px) {
     width: 300px !important;
-     font-size: 22px;
+    font-size: 22px;
   }
 `;
 
@@ -120,6 +187,41 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: rgba(6, 27, 176, 0.9);
   }
+`;
+
+const Alert = styled.div`
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  z-index: 50;
+  transition: opacity 0.5s ease-in-out;
+
+  ${({ type }) =>
+    type === 'success' &&
+    `
+    color: white;
+    background-color: rgba(6, 27, 176, 1);
+  `}
+
+  ${({ type }) =>
+    type === 'error' &&
+    `
+    color: white;
+    background-color: #d9534f; /* Bootstrap danger red */
+  `}
+
+  ${({ type }) =>
+    type === 'info' &&
+    `
+    color: white;
+    background-color: rgba(0, 123, 255, 1); /* Bootstrap info blue */
+  `}
 `;
 
 const ContactBox = styled.div`

@@ -107,7 +107,7 @@ const Button = styled.div`
   color: white;
   font-size: 25px;
   border-radius: 8px;
-  padding: 9px 20px 26px 20px;
+  padding: 11px 20px 24px 20px;
   margin-left: 15px;
   font-weight: 300;
   outline: none; /* Removes focus outline */
