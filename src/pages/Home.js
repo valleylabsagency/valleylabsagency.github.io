@@ -115,7 +115,7 @@ const Home = () => {
                         <h3>
                             {caseStudy.title}
                             <a href={caseStudy.link} className="case-study-link" target="_blank">
-                                <FaExternalLinkAlt />
+                                {/*<FaExternalLinkAlt /> */}
                             </a>
                         </h3>
                         <p>{caseStudy.description}</p>
