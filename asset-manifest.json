@@ -1,21 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.cadc2c65.css",
-    "main.js": "/static/js/main.bc8b22a2.js",
+    "main.css": "/static/css/main.f32c0738.css",
+    "main.js": "/static/js/main.aaeb0f69.js",
     "static/js/453.96767971.chunk.js": "/static/js/453.96767971.chunk.js",
+    "static/media/kyleandmal.png": "/static/media/kyleandmal.ab865c25520fb892e46a.png",
     "static/media/apps.jpg": "/static/media/apps.896d7bb5fb669135b8cf.jpg",
     "static/media/website.jpg": "/static/media/website.df2f8d4ab5463ad6441d.jpg",
     "static/media/design.jpg": "/static/media/design.88a9b9cd6b672272dd86.jpg",
+    "static/media/dateish.png": "/static/media/dateish.b6a9c880070b9156aeac.png",
     "static/media/iphone.jpg": "/static/media/iphone.868f4e11cbfead0aa29b.jpg",
     "static/media/tyler.jpg": "/static/media/tyler.1bc58533d71dee9a28b1.jpg",
+    "static/media/odyssey.JPEG": "/static/media/odyssey.f74f96ca76e044728445.JPEG",
     "static/media/nav-logo.svg": "/static/media/nav-logo.1010ad7b9e23a19765cfc088392fad11.svg",
     "index.html": "/index.html",
-    "main.cadc2c65.css.map": "/static/css/main.cadc2c65.css.map",
-    "main.bc8b22a2.js.map": "/static/js/main.bc8b22a2.js.map",
+    "main.f32c0738.css.map": "/static/css/main.f32c0738.css.map",
+    "main.aaeb0f69.js.map": "/static/js/main.aaeb0f69.js.map",
     "453.96767971.chunk.js.map": "/static/js/453.96767971.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cadc2c65.css",
-    "static/js/main.bc8b22a2.js"
+    "static/css/main.f32c0738.css",
+    "static/js/main.aaeb0f69.js"
   ]
 }
